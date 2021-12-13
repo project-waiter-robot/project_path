@@ -7,7 +7,9 @@ int save_x;
 int save_y;
 int theta_current;
 int theta_target;
+int test1111111;
 
+int tedu;
 int test;
 int test1;
 int test165135;
