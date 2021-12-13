@@ -9,6 +9,7 @@ int theta_current;
 int theta_target;
 
 int test;
+int test1;
 
 void setup() 
 {
