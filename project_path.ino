@@ -10,7 +10,7 @@ int theta_current;
 int theta_target;
 int break_range; //distanse that the car will break near target
 int break_coefficient;//break level
-int test;
+
 
 void setup() 
 {
