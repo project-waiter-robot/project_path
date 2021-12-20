@@ -35,9 +35,10 @@ void loop()
   check_if_arrive(x,y,desk1_x,desk1_y);
 
 
-
+//======存上個xy=======================================
   save_x=x;
   save_y=y;
+//=============================================
 }
 
 //=================計算現在的角度=============================//
@@ -59,8 +60,12 @@ void calculate_target_angle(int a,int b,int c,int d)
   theta_target=atan (tangent_value);  // arc tangent of x
 }
 //==========================================================//
+<<<<<<< HEAD
 
 
+=======
+//======距離控制======================================================//
+>>>>>>> d6c590d5c867aabf5d734a9217ae3b0f43d3c622
 void check_if_arrive(int a,int b,int c,int d)
 { 
   int x_abs = c-a;
@@ -73,4 +78,4 @@ void check_if_arrive(int a,int b,int c,int d)
     break_coefficient = 1/(x_abs + y_abs); //break harder when approaching target
   }
 }
-
+//================================================================//
