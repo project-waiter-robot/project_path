@@ -66,7 +66,7 @@ void check_if_arrive(int a,int b,int c,int d)
 
   if( x_abs < break_range && y_abs < break_range ) //when distance < range
   {
-    break_coeffition = 1/(x_abs + y_abs); //break harder when approaching target
+    break_coefficient = 1/(x_abs + y_abs); //break harder when approaching target
   }
 }
 
