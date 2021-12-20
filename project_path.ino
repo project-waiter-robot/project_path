@@ -1,11 +1,8 @@
 //#include "WiFi.h"
 //#include <WebServer.h>
 #include <math.h>
-//SPI//////////////////////////////////////
-#include<SPI.h>
-volatile boolean received;
-volatile byte Slavereceived,Slavesend;
-///////////////////////////////////////////
+
+
 int desk1_x=100;//desk1 position
 int desk1_y=100;
 int save_x;       //save x from the past
@@ -18,27 +15,13 @@ int break_coefficient;//break level
 
 void setup() 
 {
+  Serial.begin(115200);
+
   int x;//car is moving,recent position
   int y;
   
-//SPI////////////////////////////////////////
-  pinMode(MISO,OUTPUT);                   //Sets MISO as OUTPUT (Have to Send data to Master IN 
-
-  SPCR |= _BV(SPE);                       //Turn on SPI in Slave Mode
-  received = false;
-
-  SPI.attachInterrupt();                  //Interuupt ON is set for SPI commnucation
-///////////////////////////////////////////////////
 
 }
-
-//SPI/////////////////////////////////////////
-ISR (SPI_STC_vect)                        //Inerrrput routine function 
-{
-  Slavereceived = SPDR;         // Value received from master if store in variable slavereceived
-  received = true;                        //Sets received as True 
-}
-//////////////////////////////////////////////
 
 
 
@@ -50,17 +33,6 @@ void loop()
   calculate_now_angle(x,y,save_x,save_y);
   calculate_target_angle(x,y,desk1_x,desk1_y);
   check_if_arrive(x,y,desk1_x,desk1_y);
-
-//SPI////////////////////////////////////////////////////////
-if(received)                            //Logic to SET LED ON OR OFF depending upon the value recerived from master
-{
-  Slavesend=;                             
-  SPDR = Slavesend;                           //Sends the x value to master via SPDR 
-  delay(1000);
-}
-///////////////////////////////////////////////////////////////////////////
-
-
 
 
 
