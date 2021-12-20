@@ -2,7 +2,7 @@
 //#include <WebServer.h>
 #include <math.h>
 
-
+//================角度+距離控制==========================
 int desk1_x=100;//desk1 position
 int desk1_y=100;
 int save_x;       //save x from the past
@@ -11,7 +11,7 @@ int theta_current;
 int theta_target;
 int break_range; //distanse that the car will break near target
 int break_coefficient;//break level
-
+//========================================================
 
 void setup() 
 {
@@ -41,6 +41,14 @@ void loop()
 }
 
 
+
+
+
+
+
+
+
+
 void calculate_now_angle(int a,int b,int c,int d)
 {
   int dx=a-c;//delta x
@@ -56,7 +64,7 @@ void calculate_target_angle(int a,int b,int c,int d)
   int tangent_value=dy/dx;
   theta_target=atan (tangent_value);  // arc tangent of x
 }
-
+//==========距離控制===============================================
 void check_if_arrive(int a,int b,int c,int d)
 { 
   int x_abs = c-a;
@@ -66,7 +74,7 @@ void check_if_arrive(int a,int b,int c,int d)
 
   if( x_abs < break_range && y_abs < break_range ) //when distance < range
   {
-    break_coefficient = 1/(x_abs + y_abs); //break harder when approaching target
+    break_coeffition = 1/(x_abs + y_abs); //break harder when approaching target
   }
 }
-
+//================================================================
