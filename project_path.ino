@@ -237,6 +237,7 @@ void hedgehog_set_crc16(byte *buf, byte size)
 
 
 //=================宣告初始變數===========================//
+
 int desk1_x=100;//desk1 position
 int desk1_y=100;
 int save_x;       //save x from the past
@@ -255,9 +256,7 @@ void setup()
 //===============================
 
 
-  int x;//car is moving,recent position
-  int y;
-  
+
 
 }
 
@@ -268,9 +267,9 @@ void loop()
   int x=20;//car is moving,recent position
   int y=30;
 
-  calculate_now_angle(x,y,save_x,save_y);
-  calculate_target_angle(x,y,desk1_x,desk1_y);
-  check_if_arrive(x,y,desk1_x,desk1_y);
+  calculate_now_angle(hedgehog_x,hedgehog_y,save_x,save_y);
+  calculate_target_angle(hedgehog_x,hedgehog_y,desk1_x,desk1_y);
+  check_if_arrive(hedgehog_x,hedgehog_y,desk1_x,desk1_y);
 //======hedgehog================================
   byte lcd_coord_precision;
    char lcd_buf[12];
@@ -303,8 +302,8 @@ void loop()
 //================================================
 
 //======存上個xy=======================================//
-  save_x=x;
-  save_y=y;
+  save_x=hedgehog_x;
+  save_y=hedgehog_y;
 //=============================================//
 }
 
