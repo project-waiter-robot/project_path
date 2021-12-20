@@ -308,6 +308,38 @@ void loop()
 //=============================================//
 }
 
+
+
+//======hedgehog===========================================================================
+long Distance(long time, int flag)
+{
+  /*
+  
+  */
+  long distacne;
+  if(flag)
+    distacne = time /29 / 2  ;     // Distance_CM  = ((Duration of high level)*(Sonic :340m/s))/2
+                                   //              = ((Duration of high level)*(Sonic :0.034 cm/us))/2
+                                   //              = ((Duration of high level)/(Sonic :29.4 cm/us))/2
+  else
+    distacne = time / 74 / 2;      // INC
+  return distacne;
+}
+
+long TP_init()
+{                     
+  digitalWrite(TP, LOW);                    
+  delayMicroseconds(2);
+  digitalWrite(TP, HIGH);                 // pull the Trig pin to high level for more than 10us impulse 
+  delayMicroseconds(10);
+  digitalWrite(TP, LOW);
+  long microseconds = pulseIn(EP,HIGH);   // waits for the pin to go HIGH, and returns the length of the pulse in microseconds
+  return microseconds;                    // return microseconds
+}
+//==============================================================================================
+
+
+
 //=================計算現在的角度=============================//
 void calculate_now_angle(int a,int b,int c,int d)
 {
