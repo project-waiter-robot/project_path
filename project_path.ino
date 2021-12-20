@@ -2,7 +2,7 @@
 //#include <WebServer.h>
 #include <math.h>
 
-
+//=================宣告初始變數===========================//
 int desk1_x=100;//desk1 position
 int desk1_y=100;
 int save_x;       //save x from the past
@@ -11,7 +11,7 @@ int theta_current;
 int theta_target;
 int break_range; //distanse that the car will break near target
 int break_coefficient;//break level
-
+//=======================================================//
 
 void setup() 
 {
@@ -59,6 +59,7 @@ void calculate_target_angle(int a,int b,int c,int d)
   theta_target=atan (tangent_value);  // arc tangent of x
 }
 //==========================================================//
+
 
 void check_if_arrive(int a,int b,int c,int d)
 { 
