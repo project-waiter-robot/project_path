@@ -60,12 +60,12 @@ void calculate_target_angle(int a,int b,int c,int d)
   theta_target=atan (tangent_value);  // arc tangent of x
 }
 //==========================================================//
-<<<<<<< HEAD
 
 
-=======
+
+
 //======距離控制======================================================//
->>>>>>> d6c590d5c867aabf5d734a9217ae3b0f43d3c622
+
 void check_if_arrive(int a,int b,int c,int d)
 { 
   int x_abs = c-a;
