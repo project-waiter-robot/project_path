@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <math.h>
+#include <Wire.h>
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //  MARVELMIND HEDGEHOG RELATED PART
@@ -255,7 +256,10 @@ void setup()
   setup_hedgehog();//    Marvelmind hedgehog support initialize
 //===============================
 
-
+//======I2C=======================================
+  Wire.begin(3); //I2C位址與連線設定，這裡設定為3號
+  Wire.onReceive(receiveEvent); //當收到I2C訊號時，啟動的動作
+//=================================================
 
 
 }
@@ -305,6 +309,7 @@ void loop()
   save_x=hedgehog_x;
   save_y=hedgehog_y;
 //=============================================//
+delay(100);
 }
 
 
@@ -377,3 +382,12 @@ void check_if_arrive(int a,int b,int c,int d)
   }
 }
 //================================================================//
+//======I2C==========================================
+void receiveEvent(int numBytes)
+{
+  while(Wire.available()){ //判斷Wire.available()有沒有訊號
+  int c = Wire.read(); //將傳入的訊號Wire.read()指定給int C
+  Serial.print(c); //透過Serial印出int C的內容
+}
+}
+//=========================================================
